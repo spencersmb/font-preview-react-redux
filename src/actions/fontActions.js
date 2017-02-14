@@ -17,12 +17,3 @@ export const loadFont = (font) => {
   };
 
 };
-
-export const updateText = (text) => {
-
-  return {
-    type: type.UPDATE_FONT_TEXT,
-    text
-  };
-
-};

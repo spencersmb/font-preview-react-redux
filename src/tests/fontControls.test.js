@@ -4,6 +4,7 @@ import {mount, shallow} from 'enzyme';
 import {FontControls} from '../components/controls/fontControls';
 
 describe('Font Controls', () => {
+  
   let spy = expect.createSpy();
   const props = {
     size: '24',

@@ -8,10 +8,7 @@ export const config = ( initialState = {} ) => {
 
   //mirror of state from original app
   const reducer = combineReducers({
-    font: fontReducer,
-    test: {
-      name: 'spencer'
-    }
+    font: fontReducer
   });
 
   // return Createstore function here,
