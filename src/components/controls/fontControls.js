@@ -9,10 +9,20 @@ export class FontControls extends React.Component {
   constructor( props, context ) {
     super(props, context);
     this.handleRangeSlider = this.handleRangeSlider.bind(this);
+    this.onInput = this.onInput.bind(this);
+    this.mouseUp = this.mouseUp.bind(this);
   }
 
   handleRangeSlider(event){
     this.props.actions.setFontSize(event.target.value);
+  }
+
+  onInput(){
+    // console.log("on Input event");
+  }
+
+  mouseUp(){
+    // console.log("on Mouse Up event");
   }
 
   render() {
@@ -21,7 +31,7 @@ export class FontControls extends React.Component {
     return (
       <div className="fp-controls">
         <div className="fp-input">
-          <input ref="range" className="fp-input__range" type="range" value={size} min="10" max="50" step="1" onChange={this.handleRangeSlider} />
+          <input ref="range" className="fp-input__range" type="range" value={size} min="10" max="50" step="1" onMouseUp={this.mouseUp} onChange={this.handleRangeSlider} onInput={this.onInput} />
         </div>
         <div className="fp-textSize">
           {size} px

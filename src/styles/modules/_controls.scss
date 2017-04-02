@@ -13,9 +13,8 @@ $range-track-height: 16px !default;
 }
 
 .fp-input{
-  width: $range-width;
   text-align: center;
-  padding: 45px 0 30px;
+  padding: 45px 20px 30px;
 
   &__range{
     -webkit-appearance: none;
