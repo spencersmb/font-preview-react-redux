@@ -1,21 +1,36 @@
-// This component handles the APP template used on every page.
-import React, {PropTypes} from 'react';
-import {connect} from 'react-redux';
-import FontControls from './controls/fontControls';
-import LiveText from './input/liveText';
+import reviews from '../Reviews/const'
+// eslint-disable-line react/prefer-stateless-function
+export default class Reviews extends React.Component { 
 
-//These are prop types set on the item when you use it -> {course} destructure it automatically
-const FontApp = () => {
-  return (
-    <div className="fp-shell">
-      <FontControls />
-      <LiveText />
-    </div>
-  );
-};
+  static propTypes = {
+    match: React.PropTypes.node.isRequired,
+  }
 
-FontApp.propTypes = {
-  // name: PropTyp$es.string.isRequired
-};
+  render() {
+    const revs = reviews.map(review => {
 
-export default FontApp;
+      return (
+          <div key={review.id}>
+            {review.items
+            .filter(item => item.id === this.props.match.params.reviewId)
+            .map(item =>
+              <div className="cell">
+                <div key={item.id}>
+                  <img src={item.img} alt={item.name} />
+                  <div>{item.text}</div>
+                </div>
+              </div>
+            )}
+          </div>
+      );
+
+    })
+
+return (
+  <div>
+    {this.props.match.params.reviewId}
+    { revs }
+  </div>
+)
+ }
+}

@@ -8,10 +8,10 @@ import { render } from 'react-dom';
 // Import components
 import FontApp from './components/app';
 
-import {loadFont} from './actions/fontActions';
+import { loadFont } from './actions/fontActions';
 require('style-loader!css-loader?-autoprefixer!postcss-loader!sass-loader!applicationStyles');
 
-import {config} from './store/config.store';
+import { config } from './store/config.store';
 
 const store = config(); //pass optional initialstate object here into config - like if it comes from a server or something
 const font = {
@@ -24,8 +24,8 @@ const font = {
 //make call to populate redux with initial data
 store.dispatch(loadFont(font));
 
-render (
-  <Provider store={store} >
+render(
+  <Provider store={store}>
     <FontApp />
   </Provider>,
   document.getElementById('app')
